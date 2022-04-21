@@ -1,0 +1,24 @@
+{
+    "config": {
+        "paths": {
+            "depots": "./pulley_imported/",
+            "mdl_compile": "C:/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Singleplayer/bin/studiomdl.exe",
+            "mdl_decompile": "./PulleyLib/studiomdl_decomp.exe"
+        },
+        "profiles_to_run": [
+            "import_test"
+        ]
+    },
+    "profiles": {
+        "import_test": {
+            "uses_vpk": true,
+            "depot_to_import_to": "import_test",
+            "content_dir": "C:/Program Files (x86)/Steam/steamapps/common/Half-Life 2/hl2/hl2_misc_dir.vpk",
+            "content_to_import": [
+                "cfg/valve.rc",
+                "materials/brick/brickfloor001a.vmt",
+                "models/props_c17/briefcase001a.mdl"
+            ]
+        }
+    }
+}
