@@ -47,6 +47,50 @@ The Pulley configuration file uses the following format:
 ### Running a Pulley import
 To run Pulley, you should directly run the Python script, or run `py pulley.py` in a command line. Pulley will run through and process each profile listed in the `profiles_to_run` section of the configuration. Once an import is completed, the content should be available within the depot directory.
 
+### Example config
+Below is an example Pulley config, that imports 3 textures and a material from Portal
+
+```json
+{
+    "config": {
+        "paths": {
+            "depots": "./pulley_imported/",
+            "mdl_compile": "C:/Program Files (x86)/Steam/steamapps/common/Source SDK Base 2013 Singleplayer/bin/studiomdl.exe",
+            "mdl_decompile": "./PulleyLib/studiomdl_decomp.exe"
+        },
+        "profiles_to_run": [
+            "aperture_parking_lot"
+        ]
+    },
+    "profiles": {
+        "aperture_parking_lot": {
+            "uses_vpk": true,
+            "depot_to_import_to": "portal",
+            "content_dir": "C:/Program Files (x86)/Steam/steamapps/common/Portal/portal/portal_pak_dir.vpk",
+            "content_to_import": [
+                "materials/nature/escape_vista_01.vtf",
+                "materials/nature/escape_vista_02.vtf",
+
+                "materials/signage/overlay_aperture_logo_worn.vmt",
+                "materials/signage/overlay_aperture_logo_worn.vtf"
+            ]
+        }
+    }
+}
+```
+
+The output of the above configuration looks like the following:
+
+- pulley_imported
+  - portal
+    - materials
+      - nature
+        - escape_vista_01.vtf
+        - escape_vista_02.vtf
+      - signage
+        - overlay_aperture_logo_worn.vmt
+        - overlay_aperture_logo_worn.vtf
+
 ## Other Notes
 - The tool has special import procedures for .MDL model files. Pulley will attempt to decompile models, and then recompile them under the SDK 2013 toolset.
 - Pulley is not designed to be used for copyright infringement. Support will not be provided in cases where you use Pulley to infringe on copyright.
